@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1011" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ClienteCore" representedClassName="ClienteCore" syncable="YES">
+        <attribute name="auto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codigo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="queue_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="razon_social" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rif" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ClienteCore" positionX="-45" positionY="0" width="128" height="135"/>
+    </elements>
+</model>

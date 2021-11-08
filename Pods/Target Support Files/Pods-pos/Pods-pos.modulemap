@@ -1,0 +1,6 @@
+framework module Pods_pos {
+  umbrella header "Pods-pos-umbrella.h"
+
+  export *
+  module * { export * }
+}
