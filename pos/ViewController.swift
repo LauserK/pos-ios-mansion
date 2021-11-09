@@ -32,9 +32,15 @@ class ViewController: UIViewController {
         } else {
             // Si todo OK realizamos la consulta para verificar si existe el usuario
             ToolsPaseo().loadingView(vc: self, msg: "Verificando datos...")
-            User().getUser(codigo: self.userField.text!, clave: self.passwordField.text!){ user in
+            User().getUserNew(codigo: self.userField.text!, clave: self.passwordField.text!){ user in
                 
                 self.dismiss(animated: true){
+                    /*let userr = User()
+                    userr.auto = "0000000021"
+                    userr.codigo = "26392347"
+                    userr.nombre = "KILDARE"
+                    self.usuario = userr
+                    self.performSegue(withIdentifier: "irCliente", sender: self)*/
                     if (user.auto != nil) {
                         self.usuario = user
                         self.performSegue(withIdentifier: "irCliente", sender: self)

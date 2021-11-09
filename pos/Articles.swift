@@ -21,7 +21,7 @@ class Article {
     var auto_cuenta: String?
     
     func getArticlesByCode(code: String, completion:@escaping (Article) -> Void){
-        ToolsPaseo().consultPOSTAlt(path: "http://10.10.2.15:8000/api/v1/ventas/articles/?code=\(code)", params: [:]){ data in
+        ToolsPaseo().consultPOSTAlt(path: "http://192.168.0.94:8000/api/v1/ventas/articles/?code=\(code)", params: [:]){ data in
             
             let article = Article()
             
@@ -44,7 +44,7 @@ class Article {
     }
     
     func getArticlesByPLU(plu: String, completion:@escaping (Article) -> Void){
-        ToolsPaseo().consultPOSTAlt(path: "http://10.10.2.15:8000/api/v1/ventas/articles/?plu=\(plu)", params: [:]){ data in
+        ToolsPaseo().consultPOSTAlt(path: "http://192.168.0.94:8000/api/v1/ventas/articles/?plu=\(plu)", params: [:]){ data in
             
             let article = Article()
             
@@ -76,7 +76,7 @@ class Article {
         
         let json = JSON(obj.object)
         
-        ToolsPaseo().consultPOSTJSON(path: "http://10.10.2.15:8000/api/v1/ventas/articles/account/", json: "\(json)") { data in
+        ToolsPaseo().consultPOSTJSON(path: "http://192.168.0.94:8000/api/v1/ventas/articles/account/", json: "\(json)") { data in
             
             // add the data to groups array
             for (_, subJson):(String, JSON) in data["data"] {
@@ -106,7 +106,7 @@ class Article {
     func getArticlesByGroup(auto_group: String, completion:@escaping ([Article]) -> Void){
         var articles = [Article]()
         
-        ToolsPaseo().consultPOSTAlt(path: "http://10.10.2.15:8000/api/v1/ventas/articles/?group=\(auto_group)", params: [:]){ data in
+        ToolsPaseo().consultPOSTAlt(path: "http://192.168.0.94:8000/api/v1/ventas/articles/?group=\(auto_group)", params: [:]){ data in
             
             // add the data to groups array
             for (_, subJson):(String, JSON) in data["data"] {
@@ -142,7 +142,7 @@ class Article {
         ]
         
         let json = JSON(obj.object)
-        ToolsPaseo().consultPOSTJSON(path: "http://10.10.2.15:8000/api/v1/ventas/articles/add/", json: "\(json)") {data in
+        ToolsPaseo().consultPOSTJSON(path: "http://192.168.0.94:8000/api/v1/ventas/articles/add/", json: "\(json)") {data in
             
             if (data["settings"]["message"] == "saved" ) {
                 self.auto_cuenta = data["data"][0]["auto"].string!
@@ -160,7 +160,7 @@ class Article {
         ]
         
         let json = JSON(obj.object)
-        ToolsPaseo().consultPOSTJSON(path: "http://10.10.2.15:8000/api/v1/ventas/articles/remove/", json: "\(json)") { data in
+        ToolsPaseo().consultPOSTJSON(path: "http://192.168.0.94:8000/api/v1/ventas/articles/remove/", json: "\(json)") { data in
             
             if (data["settings"]["message"] == "removed" ) {
                 completion(true)
@@ -179,7 +179,7 @@ class Article {
         ]
         let json = JSON(obj.object)
         
-        ToolsPaseo().consultPOSTJSON(path: "http://10.10.2.15:8000/api/v1/ventas/articles/remove/all/", json: "\(json)") { data in
+        ToolsPaseo().consultPOSTJSON(path: "http://192.168.0.94:8000/api/v1/ventas/articles/remove/all/", json: "\(json)") { data in
             
             if (data["settings"]["message"] == "removed" ) {
                 completion(true)

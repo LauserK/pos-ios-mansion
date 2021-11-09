@@ -16,7 +16,7 @@ class Group {
     func getAllGroupsOfSection(completion:@escaping ([Group]) -> Void){
         let section = SettingsBundleHelper.getSection()
         
-        ToolsPaseo().consultPOSTAlt(path: "http://10.10.2.15:8000/api/v1/ventas/groups/?section=\(section)", params: [:]){ data in
+        ToolsPaseo().consultPOSTAlt(path: "http://192.168.0.94:8000/api/v1/ventas/groups/?section=\(section)", params: [:]){ data in
             
             var groups = [Group]()
             

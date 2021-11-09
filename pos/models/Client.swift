@@ -21,7 +21,7 @@ class Client {
     func getAllClientByQueue(completion:@escaping ([Client]) -> Void){
         let section = SettingsBundleHelper.getSection()
         
-        ToolsPaseo().consultPOSTAlt(path: "http://10.10.2.15:8000/api/v1/ventas/clients/?section=\(section)", params: [:]){ data in
+        ToolsPaseo().consultPOSTAlt(path: "http://192.168.0.94:8000/api/v1/ventas/clients/?section=\(section)", params: [:]){ data in
             var clients = [Client]()
             
             for (_, subJson):(String, JSON) in data["data"] {
@@ -41,7 +41,7 @@ class Client {
     }
     
     func updateClientStatus(status: String, completion:@escaping (Bool) -> Void){
-        ToolsPaseo().consultPOSTAlt(path: "http://10.10.2.15:8000/api/v1/ventas/clients/update/?auto=\(self.queue_id!)&status=\(status)", params: [:]){ data in
+        ToolsPaseo().consultPOSTAlt(path: "http://192.168.0.94:8000/api/v1/ventas/clients/update/?auto=\(self.queue_id!)&status=\(status)", params: [:]){ data in
             if(data["settings"]["message"] == "updated") {
                 completion(true)
             } else {
